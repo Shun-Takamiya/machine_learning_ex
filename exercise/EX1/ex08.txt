@@ -1,0 +1,11 @@
+"""
+Ex1 8. 標準入力された文字列を逆順で標準出力せよ．
+        例題
+            入力: "abcdefg"
+            出力: "gfedcba"
+"""
+
+Pythonで文字列を連結・結合についての確認を行なった．
+
+＜参考文献＞
+nkmk.「Pythonで文字列を連結・結合（+演算子、joinなど）」. note.nkmk.me. (n.d.). https://note.nkmk.me/python-string-concat/, (参照 2025-10-14).

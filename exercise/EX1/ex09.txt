@@ -1,0 +1,11 @@
+"""
+Ex1 9. 標準入力された文字列の長さを標準出力せよ．
+        例題
+            入力: "abc"
+            出力: 3
+"""
+
+len関数の中身を理解した．
+
+＜参考文献＞
+nkmk.「Pythonのlen関数の使い方」. note.nkmk.me. (2023-12-11). https://note.nkmk.me/python-len-usage/, (参照 2025-10-14).

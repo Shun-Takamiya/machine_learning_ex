@@ -1,0 +1,8 @@
+"""
+Ex1 7. 3.で作ったFizzBuzzをファイルに出力せよ．ファイル名は"fizzbuzz.txt"と固定する．
+"""
+
+ex06と同じ内容だが，f文字列の使い方について確認を行なった．
+
+＜参考文献＞
+nkmk.「Pythonのf文字列（フォーマット済み文字列リテラル）の使い方」. note.nkmk.me. (n.d.). https://note.nkmk.me/python-f-strings/, (参照 2025-10-14).
