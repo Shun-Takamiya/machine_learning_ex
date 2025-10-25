@@ -1,0 +1,10 @@
+"""
+Ex2 21. 平方根を求める関数square_root(x)を実装せよ．
+        xに負の値が入力された場合には-1を返すようにせよ.
+        xに数値以外が入力された場合にはNoneを返すようにせよ.
+"""
+
+try-except で処理する方法で解いてみた．
+
+＜参考文献＞
+nkmk. 「Pythonのtry-exceptによる例外処理（else, finally）」. note.nkmk.me. https://note.nkmk.me/python-try-except-else-finally/ (2025年10月25日閲覧)

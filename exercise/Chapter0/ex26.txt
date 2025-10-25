@@ -1,0 +1,27 @@
+"""
+Ex2 26. 25を書き換えて, 行列Aも入力として受け取るような形にせよ. 
+        ベクトルの次元数d, 変換後の次元数mとする.
+        入力フォーマットは次のようにする．
+        d m
+        e1 e2 ... ed
+        A11 A12 ... A1d
+        A21 A22 ... A2d
+        :
+        Am1 Am2 ... Amd
+
+        例題
+            入力: 
+                2 3
+                1 7
+                2 4 
+                1 7
+                10 4
+            出力: 
+                30 50 38
+"""
+
+問題文を理解するのに時間がかかった．reshape関数について調べた．
+
+＜参考文献＞
+プログラミング独学塾. 「NumPyのreshape関数と-1の意味：形状を変えてデータをマップする方法」. プログラミング独学塾. https://odigo.jp/numpy-reshape-and-meaning-of-minus-one/ (2025年10月25日閲覧)
+CodeCamp編集部. 「PythonのWebアプリケーション開発に必要なスキルとは？フレームワークや学習方法を解説」. CodeCamp Trends. https://trends.codecamp.jp/blogs/media/column315 (2025年10月25日閲覧)

@@ -1,0 +1,10 @@
+"""
+Ex2 22. サイコロシミュレータ関数diceを実装せよ.
+        出目は1-6でそれぞれの出目の確率は同様に確からしいとする.
+        （一度の実行で1-6の整数が1つ返る関数を作成する. ）
+"""
+
+randomint の範囲が range関数と違うため要注意だということを解いてて思い出した．
+
+＜参考文献＞
+nkmk. 「Pythonで乱数を生成（random.randrange, randint, choice, choices, sample）」. note.nkmk.me. https://note.nkmk.me/python-random-randrange-randint/ (2025年10月25日閲覧)
