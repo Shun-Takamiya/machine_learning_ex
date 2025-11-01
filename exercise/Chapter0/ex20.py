@@ -1,7 +1,7 @@
 """
-Ex2 20. 余接関数を求める関数cot(theta)を実装せよ．
-        thetaはラジアンで入力されるとする.
-        三角関数の値はmathやnumpy等を用いてよい.
+Chapter 0 20.   余接関数を求める関数cot(theta)を実装せよ．
+                thetaはラジアンで入力されるとする.
+                三角関数の値はmathやnumpy等を用いてよい.
 """
 
 import math
