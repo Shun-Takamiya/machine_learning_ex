@@ -1,0 +1,11 @@
+"""
+Chapter1 31.    100個の点を透明度のある点として表示せよ.
+                各点の座標は前の問題と同様にランダムで生成
+                色は0から1までの値でランダムに設定
+"""
+
+plt.scatter を使う際に，「color」の場合は単色，「c」の場合は色のカテゴリが調整できることを学習した．
+
+＜参考文献＞
+nkmk. 「Pythonで乱数を生成（random.randrange, randint, choice, choices, sample）」. note.nkmk.me. https://note.nkmk.me/python-random-randrange-randint/ (2025年11月1日閲覧)
+Pythonアカデミー. 「【matplotlib】グラフの色をグラデーションにする方法【カラーマップ利用】」. Pythonアカデミー. https://python-academia.com/matplotlib-color-gradation/ (2025年11月1日閲覧)

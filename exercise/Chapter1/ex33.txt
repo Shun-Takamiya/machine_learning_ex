@@ -1,0 +1,8 @@
+"""
+Chapter1 33.    csvにある列名をリストで標準出力せよ.
+"""
+
+リスト化する際に，tolist関数もあることを知った．
+
+＜参考文献＞
+machine-learning-skill-up.com. 「Pandasでカラム名(列名)を簡単に取得する方法：実用的な手順」. machine-learning-skill-up.com. https://machine-learning-skill-up.com/knowledge/pandas%E3%81%A7%E3%82%AB%E3%83%A9%E3%83%A0%E5%90%8D%E3%82%92%E7%B0%A1%E5%8D%98%E3%81%AB%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%EF%BC%9A%E5%AE%9F%E7%94%A8%E7%9A%84%E3%81%AA%E6%89%8B (2025年11月1日閲覧)

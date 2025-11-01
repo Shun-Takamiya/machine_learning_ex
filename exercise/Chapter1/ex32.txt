@@ -1,0 +1,9 @@
+"""
+Chapter1 32.    平均0, 標準偏差2の正規分布から生成したサンプルのヒストグラムを表示せよ.
+"""
+
+ヒストグラムの表示の仕方について，検索した．
+
+＜参考文献＞
+ゴマフリーダムのPython教室．「Pythonで「正規分布を生成する2つの方法」を詳しく解説！」．ゴマフリーダムのPython教室．https://gomafree-tech.com/?p=2696 (2025年11月1日閲覧)
+supersaiakujin. 「[Python]Matplotlibでヒストグラムを描画する方法」. Qiita. https://qiita.com/supersaiakujin/items/be4a78809e7278c065e6 (2025年11月1日閲覧)

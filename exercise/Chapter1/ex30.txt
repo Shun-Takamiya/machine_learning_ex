@@ -1,0 +1,11 @@
+"""
+Chapter1 30.    10個の点を表示せよ.
+                各点の座標は-3から3までの一様分布でランダムに生成
+                散布図として図示する
+"""
+
+matplotlib.pyplot の基本操作について復習ができたと思う．
+
+＜参考文献＞
+ユタカ. 「【Python】MatplotlibのPyplotとは？【グラフ描写ライブラリ】」. ユタカノート. https://www.yutaka-note.com/entry/matplotlib_pyplot (2025年11月1日閲覧)
+Pythonデータサイエンス. 「Matplotlib 散布図」. Pythonデータサイエンス. https://pythondatascience.plavox.info/matplotlib/%E6%95%A3%E5%B8%83%E5%9B%B3 (2025年11月1日閲覧)
