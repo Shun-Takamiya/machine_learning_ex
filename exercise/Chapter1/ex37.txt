@@ -1,0 +1,8 @@
+"""
+Chapter1 37.    前日比が大きく変動している（"DoD"が±1USDよりも大きい）行を抽出せよ.
+"""
+
+lecture での内容に近いため，容易な課題だった．
+
+＜参考文献＞
+nkmk. 「Pythonで絶対値を取得するabs(), math.fabs()」. note.nkmk.me. https://note.nkmk.me/python-abs-usage/ (2025年11月2日閲覧)

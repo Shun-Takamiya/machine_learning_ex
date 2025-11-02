@@ -1,0 +1,13 @@
+"""
+Chapter1 36.    "Adj Close"の列に関して前日との差分をとって株価の前日比を計算し，"DoD"という列を作成せよ．
+"""
+
+diff()メソッドを使う以外にも，Shift関数を使う方法も考えた．
+
+df['Adj Close'].diff()：「（今日 - 昨日）」の差分を計算するのに対し，
+df['Adj Close'].shift(1)：「昨日のデータ」が今日の行に来るように，列全体を1行下にずらす操作のみを行い，計算は行わない．
+df['DoD'] = df['Adj Close'] - df['Adj Close'].shift(1)より，
+df['Adj Close'] - ...元のAdj Close（当日の価格）から，作成した「前日の価格」の列を引き算を行う．
+
+＜参考文献＞
+nkmk. 「Python, pandasの差分・変化率を算出（diff, pct_change）」. note.nkmk.me. https://note.nkmk.me/python-pandas-diff-pct-change/ (2025年11月2日閲覧)

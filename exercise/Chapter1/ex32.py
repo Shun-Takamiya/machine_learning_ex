@@ -11,9 +11,11 @@ sigma = 2
 num_points = 1000
 x = np.random.normal(mu, sigma, num_points)
 
+plt.figure(num ='Chapter 1 Exercise 32')
+
 # ヒストグラムの表示
 plt.hist(x, bins=30, color='blue' , alpha=0.7, edgecolor='black')
-plt.title('Chapter 1 Exercise 32: Histogram of 1000 Random Points from Normal Distribution')
+plt.title('Histogram of 1000 Random Points from Normal Distribution')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.grid()

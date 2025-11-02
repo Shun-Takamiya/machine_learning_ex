@@ -1,0 +1,10 @@
+"""
+Chapter1 38.    sample.csvについて, 欠損値を補完して表示せよ．
+                補完の方法は，いくつか存在する．
+                それらを調べて確認してみよう．
+"""
+
+欠損値の補完など，Kagle で実践していたものが登場し，いよいよ本番が始まる予感がした．
+
+＜参考文献＞
+nkmk. 「Python, pandasでNaN（欠損値）を除外・削除・置換（dropna, fillna）」. note.nkmk.me. https://note.nkmk.me/python-pandas-nan-dropna-fillna/ (2025年11月2日閲覧)

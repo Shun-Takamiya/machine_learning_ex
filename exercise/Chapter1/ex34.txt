@@ -1,0 +1,10 @@
+"""
+Chapter1 34.    "Adj Close"の列をグラフとしてプロットせよ．
+                ただし，時系列順に並び替えて表示する．
+"""
+
+x軸ラベルである Date の値の文字が重なって見栄えが悪かったため，改善しようと試行錯誤を行なった．
+
+＜参考文献＞
+machine-learning-skill-up.com. 「PandasのDataFrameを日付でソートする、差分抽出する[Python]」. machine-learning-skill-up.com. https://machine-learning-skill-up.com/knowledge/pandas%E3%81%AEdataframe%E3%82%92%E6%97%A5%E4%BB%98%E3%81%A7%E3%82%BD%E3%83%BC%E3%83%88%E3%81%99%E3%82%8B%E3%80%81%E5%B7%AE%E5%88%86%E6%8A%BD%E5%87%BA%E3%81%99%E3%82%8Bpython (2025年11月2日閲覧)
+ユタカ. 「【Python】Matplotlibで横軸（X軸）を時間（datetime）にする方法」. ユタカノート. https://www.yutaka-note.com/entry/matplotlib_time_axis (2025年11月2日閲覧)

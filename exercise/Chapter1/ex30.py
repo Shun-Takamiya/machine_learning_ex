@@ -11,9 +11,11 @@ import matplotlib.pyplot as plt
 x = np.random.uniform(-3, 3, 10)
 y = np.random.uniform(-3, 3, 10)
 
+plt.figure(num ='Chapter 1 Exercise 30')
+
 # 散布図として図示
 plt.scatter(x, y, color='blue', marker='o')
-plt.title('Chapter 1 Exercise 30: Scatter Plot of Random 10 Points')
+plt.title('Scatter Plot of Random 10 Points')
 plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
 plt.xlim(-3, 3)
