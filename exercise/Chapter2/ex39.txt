@@ -1,0 +1,10 @@
+"""
+    Chapter2 39.    (任意の)回帰モデルをscikit-learn準拠でコーディングし, 実験せよ.
+                    まずはMyLinearRegression()クラスを完成させて，単回帰モデルを実装してみよ.
+                    重回帰モデルなどの他の回帰モデルを実装してもよい．
+                    データはX_train.csvとy_train.csvを用いよ.
+                    評価はX_test.csvで行う. 予測結果を../text/data/y_pred.csvとして保存せよ.
+                    提出は完成したMyLinearRegression()クラスのみで構わない．
+"""
+
+Kaggle の時に作成したデータ処理のコードは，あったので，MyLinearRegression()クラスの作成に集中できた．
