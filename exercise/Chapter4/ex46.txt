@@ -1,0 +1,9 @@
+"""
+    Chapter4 46.    my_RandomForestClassifierを完成させ, ランダムフォレストを実装せよ．
+"""
+
+問われている部分を，一行で簡潔にまとめることができるように試行錯誤を行なった．
+
+＜参考文献＞
+nkmk. 「Python, collections.Counterでリストの要素ごとの出現個数をカウント」. note.nkmk.me. https://note.nkmk.me/python-collections-counter/ (2025年12月15日閲覧)
+you22fy. 「【記事タイトル】」. Qiita. http://qiita.com/you22fy/items/3bfcd1b0fbe12ea2dda9 (2025年12月15日閲覧)
