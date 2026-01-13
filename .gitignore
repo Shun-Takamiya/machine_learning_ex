@@ -4,3 +4,6 @@ venv/
 
 # OS固有のファイルを無視
 .DS_store
+
+# Pythonキャッシュファイルを無視
+generate_requirements.py
