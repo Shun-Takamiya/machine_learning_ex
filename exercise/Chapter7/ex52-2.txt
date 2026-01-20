@@ -1,0 +1,73 @@
+"""
+    Chapter7 52.    それぞれの実験の結果をレポートにて報告せよ．
+                    コードを変えることでどのような結果の変化が起こったか，またそれはなぜだと考えられるか考察せよ．
+"""
+
+＜実行結果＞
+inf = 10000の場合
+
+(.venv) (base) Mac:Chapter7 s.takamiya$ python ex52-2.py
+   fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  ...  density    pH  sulphates  alcohol  quality
+0            7.4              0.70         0.00             1.9      0.076  ...   0.9978  3.51       0.56      9.4        5
+1            7.8              0.88         0.00             2.6      0.098  ...   0.9968  3.20       0.68      9.8        5
+2            7.8              0.76         0.04             2.3      0.092  ...   0.9970  3.26       0.65      9.8        5
+3           11.2              0.28         0.56             1.9      0.075  ...   0.9980  3.16       0.58      9.8        6
+4            7.4              0.70         0.00             1.9      0.076  ...   0.9978  3.51       0.56      9.4        5
+
+[5 rows x 12 columns]
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, Intercept, x_coeff]
+Sampling 4 chains, 0 divergences ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00 / 0:00:03
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 4 seconds.
+Sampling: [y]
+Sampling ... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+x: 0.10, mu: 0.5545, var: 0.0222
+x: 0.30, mu: 0.4316, var: 0.0224
+x: 0.50, mu: 0.3165, var: 0.0217
+x: 0.70, mu: 0.1893, var: 0.0225
+x: 0.90, mu: 0.0682, var: 0.0218
+intercept distribution: mu = 0.6113261504007601, var = 0.0002938952882275734
+x-coeff distribution  : mu = -0.6019034333396623, var = 0.0011379459306457716
+
+
+＜実験結果＞
+
+【実験】inf = 100の場合
+
+(.venv) (base) Mac:Chapter7 s.takamiya$ python ex52-2.py
+   fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  ...  density    pH  sulphates  alcohol  quality
+0            7.4              0.70         0.00             1.9      0.076  ...   0.9978  3.51       0.56      9.4        5
+1            7.8              0.88         0.00             2.6      0.098  ...   0.9968  3.20       0.68      9.8        5
+2            7.8              0.76         0.04             2.3      0.092  ...   0.9970  3.26       0.65      9.8        5
+3           11.2              0.28         0.56             1.9      0.075  ...   0.9980  3.16       0.58      9.8        6
+4            7.4              0.70         0.00             1.9      0.076  ...   0.9978  3.51       0.56      9.4        5
+
+[5 rows x 12 columns]
+Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma, Intercept, x_coeff]
+Sampling 4 chains, 0 divergences ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00 / 0:00:03
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 4 seconds.
+Sampling: [y]
+Sampling ... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+x: 0.10, mu: 0.5499, var: 0.0220
+x: 0.30, mu: 0.4308, var: 0.0220
+x: 0.50, mu: 0.3073, var: 0.0211
+x: 0.70, mu: 0.1887, var: 0.0225
+x: 0.90, mu: 0.0716, var: 0.0222
+intercept distribution: mu = 0.6113287630058392, var = 0.00029540030083306237
+x-coeff distribution  : mu = -0.6019160762364897, var = 0.0011395484552321313
+
+結果：inf = 10000 の場合と inf = 100 の場合で，推定されたパラメータの事後分布に有意な差は確認されなかった．
+     Intercept（切片）については，いずれの条件でも平均が約 0.611，分散が約 0.0003 程度で一致した．
+     同様に x_coeff（傾き）についても，平均が約 -0.602，分散が約 0.0011 程度で一致する結果となった．
+
+
+※ 一部，自身の考察の整理及び確認のために，生成 AI を使用．
+
+inf の値を100倍変化させたにもかかわらず，結果に変化が生じなかった要因について考察する．
+直接的な要因は実装上の反映漏れである．変数 inf は定義されているものの，実際のモデル定義部分では使用されていなかった．
+事前分布の標準偏差（sigma）が 1 に固定されたまま学習が行われていたため，inf の値を変更してもモデル構造に変化が生じず，結果が一致したのは必然であった．
