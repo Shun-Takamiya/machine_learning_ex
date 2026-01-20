@@ -1,0 +1,77 @@
+"""
+    Chapter8 53.    それぞれの実験の結果をレポートにて報告せよ．
+                    コードを変えることでどのような結果の変化が起こったか，またそれはなぜだと考えられるか考察せよ．
+"""
+
+＜実行結果＞
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)の場合
+
+(.venv) (base) Mac:Chapter8 s.takamiya$ python ex53-2.py
+2.9.1
+10000
+1000
+true: 8, predict: 4
+true: 6, predict: 4
+true: 3, predict: 4
+true: 4, predict: 4
+true: 9, predict: 4
+true: 4, predict: 4
+true: 5, predict: 4
+true: 3, predict: 4
+true: 6, predict: 4
+true: 2, predict: 4
+epoch: 30/30, train loss: 0.4146130383014679, test loss: 0.40063419938087463, test_acc: 876/1000.....true: 8, predict: 3
+true: 6, predict: 6
+true: 3, predict: 3
+true: 4, predict: 4
+true: 9, predict: 4
+true: 4, predict: 9
+true: 5, predict: 5
+true: 3, predict: 3
+true: 6, predict: 6
+true: 2, predict: 3
+
+
+＜実験結果＞
+
+【実験】optimizer = torch.optim.Adam(model.parameters(), lr=0.01)の場合
+
+(.venv) (base) Mac:Chapter8 s.takamiya$ python ex53-2.py
+2.9.1
+10000
+1000
+true: 2, predict: 8
+true: 8, predict: 8
+true: 9, predict: 8
+true: 8, predict: 8
+true: 3, predict: 8
+true: 9, predict: 8
+true: 7, predict: 8
+true: 5, predict: 8
+true: 4, predict: 8
+true: 7, predict: 8
+epoch: 30/30, train loss: 0.1831044703722, test loss: 0.18519803881645203, test_acc: 940/1000.....true: 2, predict: 2
+true: 8, predict: 8
+true: 9, predict: 9
+true: 8, predict: 8
+true: 3, predict: 5
+true: 9, predict: 9
+true: 7, predict: 7
+true: 5, predict: 5
+true: 4, predict: 4
+true: 7, predict: 7
+
+結果：SGD を用いた場合（学習率0.1）は，最終的な train lossが0.4146，test lossが0.4006となり，test Accuracyは 87.6% であった．
+     予測の傾向として，8 を 3 と誤認したり，4 を 9 と誤認したりするケースが散見された．
+     一方，Adam を用いた場合（学習率 0.01 ）は，train lossが 0.1831，test lossが 0.1852と大幅に低い値を示し，test Accuracyは 94.0% に達した．
+     Adam では誤答が少なく，ほとんどのデータに対して正しい予測が行えていることが確認された．
+
+
+実験結果より，Adam を使用した方が SGD と比較して loss が大幅に低く，正解率も高い結果となった．この要因として，両者のアルゴリズムの性質の違いが大きく影響していると考えられる．
+学習率の調整方法の違いが挙げられる．
+SGD は全てのパラメータに対して一律の学習率（本実験では 0.1）で更新を行うため，学習が進むにつれて勾配が小さくなると更新が停滞したり，逆に学習率が大きすぎると最適解付近で振動したりする問題が生じやすい．
+Adam はパラメータごとに過去の勾配の大きさを考慮して学習率を自動的に調整する仕組みを持つ．
+更新が必要なパラメータは大きく，収束しつつあるパラメータは小さく更新されるため，効率よく最適解に近づくことが可能である．
+初期学習の速さも結果に影響している．
+SGD の結果である正解率87.6%も決して悪い数値ではないが，30 エポックという限られた回数の中では収束しきらなかった可能性がある．
+Adam は初期の学習速度が非常に速いため，同じ 30 エポックという期間内でも，より深いところまで loss を下げることができたと考えられる．

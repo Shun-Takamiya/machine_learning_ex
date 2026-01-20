@@ -1,0 +1,77 @@
+"""
+    Chapter9 54.    それぞれの実験の結果をレポートにて報告せよ．
+                    コードを変えることでどのような結果の変化が起こったか，またそれはなぜだと考えられるか考察せよ．
+"""
+
+＜実行結果＞
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)の場合
+
+(.venv) (base) Mac:Chapter9 s.takamiya$ python ex54-2.py
+2.9.1
+10000
+1000
+true: 0, predict: 5
+true: 0, predict: 5
+true: 1, predict: 8
+true: 0, predict: 5
+true: 0, predict: 2
+true: 0, predict: 5
+true: 0, predict: 2
+true: 1, predict: 3
+true: 0, predict: 5
+true: 1, predict: 8
+epoch: 30/30, train loss: 0.14872859418392181, test loss: 0.12516599893569946, test_acc: 955/1000.....true: 0, predict: 0
+true: 0, predict: 0
+true: 1, predict: 1
+true: 0, predict: 0
+true: 0, predict: 0
+true: 0, predict: 0
+true: 0, predict: 0
+true: 1, predict: 1
+true: 0, predict: 1
+true: 1, predict: 1
+
+
+＜実験結果＞
+
+【実験】optimizer = torch.optim.Adam(model.parameters(), lr=0.01)の場合
+
+(.venv) (base) Mac:Chapter9 s.takamiya$ python ex54-2.py
+2.9.1
+10000
+1000
+true: 0, predict: 5
+true: 1, predict: 2
+true: 0, predict: 2
+true: 1, predict: 2
+true: 0, predict: 5
+true: 0, predict: 5
+true: 0, predict: 5
+true: 0, predict: 2
+true: 1, predict: 2
+true: 1, predict: 3
+epoch: 30/30, train loss: 0.07442795485258102, test loss: 0.07222174108028412, test_acc: 971/1000.....true: 0, predict: 0
+true: 1, predict: 1
+true: 0, predict: 0
+true: 1, predict: 1
+true: 0, predict: 0
+true: 0, predict: 0
+true: 0, predict: 0
+true: 0, predict: 0
+true: 1, predict: 1
+true: 1, predict: 1
+
+結果：SGD（学習率 0.1）を用いた場合は，最終的な train loss が 0.1487，test loss が 0.1252 となり，test Accuracy は 95.5%であった．
+     予測結果を確認すると概ね正解しているものの，一部に誤答が見られた．
+     Adam（学習率 0.01）を用いた場合は，train loss が 0.0744，test loss が 0.0722 と SGD の約半分の値まで低下し，test Accuracyは 97.1%という非常に高い数値を記録した．
+     Adam を用いたモデルは予測の確信度も高く，安定して正解を導き出せていることが確認された．
+
+
+転移学習の有効性について考察すると，本実験ではわずか 30 エポックかつ最終層のみの学習であるにもかかわらず，両条件ともに 95 %以上という高い精度を達成している．
+事前学習（2〜9 の分類）の段階で，モデルが「画像の輪郭」や「閉じた領域」といった数字を識別するために普遍的に重要な特徴量を既に獲得していたためであると考えられる．
+数字の 0 や 1 という新しいデータに対しても，既存の特徴抽出機能が有効に働き，少ない学習コストで高いパフォーマンスを発揮できたと言える．
+次に Optimizer による結果の違いについて考察する．
+Adam が SGD と比較して loss を大幅に下げ，正解率を向上させた要因は，アルゴリズム特性にある．
+転移学習では学習対象が最終層（線形層）のみであるため，問題設定としては比較的単純な凸最適化に近い状態となっている．
+Adam は学習率をパラメータごとに適応的に調整し，かつモーメンタムを利用するため，このような状況下で SGD よりも素早く，かつ的確に最適解へ到達できたと考えられる．
+SGD は一律の高い学習率で更新を行い続けたため，最適解の近傍で振動したり，収束しきれなかったりした可能性があり，それが精度の差として現れたと推察される．

@@ -1,0 +1,76 @@
+"""
+    Chapter10 55.   それぞれの実験の結果をレポートにて報告せよ．
+                    コードを変えることでどのような結果の変化が起こったか，またそれはなぜだと考えられるか考察せよ．
+"""
+
+＜実行結果＞
+optimizer = torch.optim.Adam(model.parameters(), lr=0.001)の場合
+
+(.venv) (base) Mac:Chapter10 s.takamiya$ python ex55-2.py
+2.9.1
+60000
+EPOCH: 0 loss: 7252.46337890625
+EPOCH: 1 loss: 6682.98486328125
+EPOCH: 2 loss: 6619.92431640625
+EPOCH: 3 loss: 6582.283203125
+EPOCH: 4 loss: 6530.16259765625
+EPOCH: 5 loss: 6444.87255859375
+EPOCH: 6 loss: 6381.0712890625
+EPOCH: 7 loss: 6324.57958984375
+EPOCH: 8 loss: 6280.61572265625
+EPOCH: 9 loss: 6247.5947265625
+EPOCH: 10 loss: 6220.9375
+EPOCH: 11 loss: 6190.46826171875
+EPOCH: 12 loss: 6151.4111328125
+EPOCH: 13 loss: 6106.04736328125
+EPOCH: 14 loss: 6069.845703125
+EPOCH: 15 loss: 6042.3115234375
+EPOCH: 16 loss: 6017.43505859375
+EPOCH: 17 loss: 5999.0029296875
+EPOCH: 18 loss: 5983.51513671875
+EPOCH: 19 loss: 5968.48486328125
+
+
+＜実験結果＞
+
+【実験】optimizer = torch.optim.SGD(model.parameters(), lr=0.1)の場合
+
+(.venv) (base) Mac:Chapter10 s.takamiya$ python ex55-2.py
+2.9.1
+60000
+EPOCH: 0 loss: nan
+EPOCH: 1 loss: nan
+EPOCH: 2 loss: nan
+EPOCH: 3 loss: nan
+EPOCH: 4 loss: nan
+EPOCH: 5 loss: nan
+EPOCH: 6 loss: nan
+EPOCH: 7 loss: nan
+EPOCH: 8 loss: nan
+EPOCH: 9 loss: nan
+EPOCH: 10 loss: nan
+EPOCH: 11 loss: nan
+EPOCH: 12 loss: nan
+EPOCH: 13 loss: nan
+EPOCH: 14 loss: nan
+EPOCH: 15 loss: nan
+EPOCH: 16 loss: nan
+EPOCH: 17 loss: nan
+EPOCH: 18 loss: nan
+EPOCH: 19 loss: nan
+
+結果：Adam を用いた場合は EPOCH 0 の損失が 7252.46 から始まり，EPOCH 19 には 5968.48 まで順調に低下して収束した．
+     SGD を用いた場合は，学習開始直後の EPOCH 0 の時点で損失が nan となり，学習が崩壊したことが確認された．
+
+
+※ 一部，自身の考察の整理及び確認のために，生成 AI を使用．
+
+なぜ SGD を用いた場合に nan が発生し，学習が破綻したのかについて考察する．
+その主な原因は，設定した高い学習率と損失関数の計算式の性質にあると考えられる．
+VAE の再構成誤差の計算には，入力 x と出力 y を用いて x * log(y) + (1-x) * log(1-y) という対数計算が含まれる．
+ここで y は Decoder の出力であり，Sigmoid 関数によって 0 から 1 の間の値をとる．
+しかし，SGD の学習率 0.1 という設定は，このネットワークにとっては過大であった可能性が高い．
+学習初期の更新によって重みが大きく変動し，Decoder の最終層への入力が極端に大きな値になった結果，Sigmoid 関数の出力 y が浮動小数点演算の精度の限界で完全に 0 または 1 になってしまったと推測される．
+仮に y が0になった場合，log(0) は負の無限大となり，計算結果に無限大が含まれることで勾配計算が不可能になり，損失が nan となったのである．
+Adam（学習率 0.001）で安定して学習が進んだ理由は，初期学習率が適切に小さく設定されていたことに加え，Adam が持つパラメータごとの適応的な学習率調整機能が働いたためである．
+これにより，勾配が急な局面でも慎重な更新が行われ，Sigmoid 関数が飽和するような極端な値になることを防げたと考えられる．
